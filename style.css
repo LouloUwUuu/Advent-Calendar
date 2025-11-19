@@ -72,7 +72,7 @@ header h1 {
 
 /* État 'open' : la porte est ouverte (le numéro disparaît) */
 .door.open {
-    background-color: #ECF0F1; /* Fond clair quand c'est ouvert */
+    background-image: repeating-linear-gradient(45deg, var(--green), var(--green) 10px, var(--red) 10px, var(--red) 20px);
     cursor: default;
 }
 
@@ -164,6 +164,7 @@ header h1 {
     color: var(--red); /* Utilise la couleur de Noël définie */
     font-weight: bold;
 }
+
 
 
 
