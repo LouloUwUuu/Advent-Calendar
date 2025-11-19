@@ -1,47 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
     const doors = document.querySelectorAll('.door');
-    // Get the current date. In JavaScript, months are 0-indexed (0=Jan, 11=Dec).
-    const today = new Date();
-    // We want the day of the month (1-31)
-    const currentDay = today.getDate(); 
-    // We check that the month is indeed December (month 11)
-    const currentMonth = today.getMonth(); 
     
-    // --- 1. Initialize the Calendar ---
+    // Récupérer la date actuelle. Les mois vont de 0 (janvier) à 11 (décembre).
+    const today = new Date();
+    const currentDay = today.getDate(); // Jour du mois (1-31)
+    const currentMonth = today.getMonth(); // Mois (11 = Décembre)
+    
+    // NOUVELLES VARIABLES POUR LA MODALE (Ceci manquait)
+    const modal = document.getElementById('modal-lock');
+    const closeBtn = document.querySelector('.close-button');
+    const lockMessage = document.getElementById('lock-message');
+
+    // Fonction pour fermer la modale
+    const closeModal = () => {
+        modal.style.display = 'none';
+    };
+
+    // Fermeture par le bouton X
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Fermeture en cliquant n'importe où en dehors de la modale
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // --- 1. Initialiser le Calendrier ---
     doors.forEach(door => {
         const day = parseInt(door.getAttribute('data-day'));
         
-        // If it's not December, everything is locked.
+        // Si on n'est pas en décembre, tout est bloqué.
         if (currentMonth !== 11) {
             door.classList.add('locked');
-            return; // Stops execution for this door
+            // Mettre le mois à 12 pour que le message fonctionne, même si la date est fausse
+            door.dataset.day = day; 
+            return; 
         }
         
-        // If the door's day is in the future, we lock it.
+        // Si le jour de la porte est dans le futur, on la bloque.
         if (day > currentDay) {
             door.classList.add('locked');
         } else {
-            // Otherwise (current or past day), it can be opened.
+            // Sinon (jour actuel ou passé), on la déverrouille (unlocked)
             door.classList.add('unlocked');
-            // Check if the door has already been opened (using LocalStorage)
+            
+            // Vérifie si la porte a déjà été ouverte via LocalStorage
             if (localStorage.getItem('door_' + day) === 'open') {
                 door.classList.add('open');
             }
         }
 
-        // --- 2. Handle the Door Click ---
+        // --- 2. Gérer le Clic sur la Porte ---
         door.addEventListener('click', () => {
-            // If the door is locked, do nothing and alert.
+            
+            // SI LA PORTE EST BLOQUÉE (MODIFICATION ICI : on affiche la modale)
             if (door.classList.contains('locked')) {
-                alert("Espera tontita! The two hardest tests on the spiritual road are the patience to wait for the right moment and the courage not to be disappointed with what we encounter.");
-                return;
+                
+                // 1. Définir le message personnalisé (en utilisant votre jolie citation)
+                lockMessage.textContent = `Patience, my love! This surprise is for December ${day}! Remember: The two hardest tests on the spiritual road are the patience to wait for the right moment and the courage not to be disappointed with what we encounter. 💖`;
+                
+                // 2. Afficher la modale (au lieu de l'alerte)
+                modal.style.display = 'block';
+
+                return; 
             }
 
-            // If the door is not already open
+            // Si la porte n'est pas déjà ouverte
             if (!door.classList.contains('open')) {
-                // Open the door
+                // Ouvre la porte
                 door.classList.add('open');
-                // Save the door's state in the browser (Local Storage)
+                // Enregistre l'état de la porte
                 localStorage.setItem('door_' + day, 'open');
             }
         });
