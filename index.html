@@ -1,6 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+<head><!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Special Advent Calendar 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Happy Advent, My Love!</h1>
+        <p>Click on today's door to discover your surprise!</p>
+    </header>
+
+    <div class="calendar-grid">
+        <div class="door" data-day="1">
+            <span class="door-number">1</span>
+            <div class="door-content">
+                <p>I can't wait to share this December with you! Here's our favorite picture to start Advent!</p>
+                <img src="your-favorite-photo.jpg" alt="Our Photo" style="max-width: 90%; height: auto; border-radius: 5px;">
+            </div>
+        </div>
+        
+        <div class="door" data-day="2">
+            <span class="door-number">2</span>
+            <div class="door-content">
+                </div>
+        </div>
+        
+        <div class="door" data-day="3">
+            <span class="door-number">3</span>
+            <div class="door-content">
+                </div>
+        </div>
+        <div class="door" data-day="24">
+            <span class="door-number">24</span>
+            <div class="door-content">
+                </div>
+        </div>
+    </div>
+
+    <div id="modal-lock" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="lock-image" src="cheater.jpg" alt="Not yet unlocked" style="max-width: 100%; height: auto;">
+            <p id="lock-message">Espera tontita! The two hardest tests on the spiritual road are the patience to wait for the right moment and the courage not to be disappointed with what we encounter.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Advent Calendar 💖</title>
@@ -82,3 +134,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
