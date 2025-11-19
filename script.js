@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Récupérer la date actuelle. Les mois vont de 0 (janvier) à 11 (décembre).
     const today = new Date();
-    //const currentDay = today.getDate(); // Jour du mois (1-31)
-    //const currentMonth = today.getMonth(); // Mois (11 = Décembre)
-    const currentDay = 24; // Jour du mois (1-31)
-    const currentMonth = 11; // Mois (11 = Décembre)
+    const currentDay = today.getDate(); // Jour du mois (1-31)
+    const currentMonth = today.getMonth(); // Mois (11 = Décembre)
+    //const currentDay = 24; // Jour du mois (1-31)
+    //const currentMonth = 11; // Mois (11 = Décembre)
     
     // NOUVELLES VARIABLES POUR LA MODALE (Ceci manquait)
     const modal = document.getElementById('modal-lock');
@@ -78,3 +78,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
