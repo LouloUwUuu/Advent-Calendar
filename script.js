@@ -67,4 +67,29 @@
         });
     });
 
+    // --- Génération des Flocons de Neige (pour le fond animé) ---
+    const snowContainer = document.querySelector('.snow-container');
+    const numberOfSnowflakes = 50; // Nombre de flocons simultanés
+
+    for (let i = 0; i < numberOfSnowflakes; i++) {
+        const flake = document.createElement('div');
+        flake.classList.add('snow-flake');
+    
+        // Position aléatoire sur la largeur de l'écran
+        flake.style.left = Math.random() * 100 + 'vw';
+    
+        // Taille aléatoire
+        const size = Math.random() * 3 + 2; // Entre 2px et 5px
+        flake.style.width = size + 'px';
+        flake.style.height = size + 'px';
+    
+        // Durée d'animation aléatoire (pour un effet moins répétitif)
+        flake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Entre 5s et 10s
+    
+        // Délai de démarrage aléatoire (pour que les flocons ne commencent pas tous en même temps)
+        flake.style.animationDelay = Math.random() * 5 + 's';
+    
+        snowContainer.appendChild(flake);
+    }
+
 });
