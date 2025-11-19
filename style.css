@@ -72,7 +72,7 @@ header h1 {
 
 /* État 'open' : la porte est ouverte (le numéro disparaît) */
 .door.open {
-    background-image: repeating-linear-gradient(45deg, var(--green), var(--green) 10px, var(--red) 10px, var(--red) 20px);
+
     cursor: default;
 }
 
@@ -118,6 +118,11 @@ header h1 {
     background-image: repeating-linear-gradient(45deg, var(--green), var(--green) 10px, var(--red) 10px, var(--red) 20px);
 }
 
+.door.unlocked {
+    opacity: 0.5; /* Rendre les portes futures un peu transparentes */
+    cursor: default;
+    background-image: repeating-linear-gradient(45deg, var(--green), var(--green) 10px, var(--red) 10px, var(--red) 20px);
+}
 
 /* Style pour la Modale (Popup) - Anti Triche */
 
@@ -164,7 +169,6 @@ header h1 {
     color: var(--red); /* Utilise la couleur de Noël définie */
     font-weight: bold;
 }
-
 
 
 
