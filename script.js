@@ -38,7 +38,7 @@
         if (day > currentDay || currentMonth !== 11) {
             door.classList.add('locked');
         }
-        // Sinon (jour actuel ou passé), on l'ouvre
+        // Sinon (jour passé), on l'ouvre
         if (day < currentDay) {
             door.classList.add('open');
         }
