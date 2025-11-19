@@ -101,11 +101,6 @@ header h1 {
     box-sizing: border-box; /* Inclut le padding dans la largeur/hauteur */
 }
 
-.door-content img, .door-content iframe {
-    max-width: 100%; /* S'assure que les médias ne débordent pas */
-    height: auto;    /* Conserve les proportions */
-}
-
 .door.open .door-content {
     opacity: 1; /* Affiche le contenu quand la porte est ouverte */
 }
@@ -163,3 +158,4 @@ header h1 {
     color: var(--red); /* Utilise la couleur de Noël définie */
     font-weight: bold;
 }
+
