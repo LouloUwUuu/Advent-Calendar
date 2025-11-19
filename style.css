@@ -105,6 +105,7 @@ header h1 {
 /* Style pour la Modale (Popup) - Anti Triche */
 
 .modal {
+    display: none;
     position: fixed; /* Reste en place */
     z-index: 10; /* Au-dessus de tout le reste */
     left: 0;
