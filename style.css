@@ -105,7 +105,6 @@ header h1 {
 /* Style pour la Modale (Popup) - Anti Triche */
 
 .modal {
-    display: none; /* Cachée par défaut */
     position: fixed; /* Reste en place */
     z-index: 10; /* Au-dessus de tout le reste */
     left: 0;
@@ -147,3 +146,4 @@ header h1 {
     color: var(--red); /* Utilise la couleur de Noël définie */
     font-weight: bold;
 }
+
