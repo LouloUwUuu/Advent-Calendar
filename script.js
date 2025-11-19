@@ -1,14 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const doors = document.querySelectorAll('.door');
-    
+       
     // Récupérer la date actuelle. Les mois vont de 0 (janvier) à 11 (décembre).
     const today = new Date();
-    const currentDay = today.getDate(); // Jour du mois (1-31)
-    const currentMonth = today.getMonth(); // Mois (11 = Décembre)
-    //const currentDay = 24; // Jour du mois (1-31)
-    //const currentMonth = 11; // Mois (11 = Décembre)
+    //const currentDay = today.getDate(); // Jour du mois (1-31)
+    //const currentMonth = today.getMonth(); // Mois (11 = Décembre)
+    const currentDay = 16; // Jour du mois (1-31)
+    const currentMonth = 11; // Mois (11 = Décembre)
     
-    // NOUVELLES VARIABLES POUR LA MODALE (Ceci manquait)
+    // NOUVELLES VARIABLES POUR LA MODALE 
     const modal = document.getElementById('modal-lock');
     const closeBtn = document.querySelector('.close-button');
     const lockMessage = document.getElementById('lock-message');
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
-    
+
     // --- 1. Initialiser le Calendrier ---
     doors.forEach(door => {
         const day = parseInt(door.getAttribute('data-day'));
@@ -37,11 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Si le jour de la porte est dans le futur, on la bloque.
         if (day > currentDay || currentMonth !== 11) {
             door.classList.add('locked');
-        } else {
-            // Sinon (jour actuel ou passé), on la déverrouille (unlocked)
-            door.classList.add('unlocked');
+        }
+        // Sinon (jour actuel ou passé), on l'ouvre
+        if (day < currentDay) {
+            door.classList.add('open');
         }
 
+        if (day == currentDay) {
+            door.classList.add('unlocked');
+        }
         // --- 2. Gérer le Clic sur la Porte ---
         door.addEventListener('click', () => {
             
@@ -64,4 +68,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
