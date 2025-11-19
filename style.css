@@ -1,0 +1,149 @@
+/* Importation d'une police sympa pour Noël */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    --red: #C0392B; /* Rouge de Noël */
+    --green: #27AE60; /* Vert de Noël */
+    --gold: #F1C40F; /* Or */
+    --font-fancy: 'Great Vibes', cursive; /* Police élégante */
+    --font-basic: 'Open Sans', sans-serif; /* Police standard */
+}
+
+body {
+    background-color: #F8F9F9;
+    font-family: var(--font-basic);
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: var(--font-fancy);
+    font-size: 3em;
+    color: var(--red);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.calendar-grid {
+    display: grid;
+    /* Crée une grille de 6 colonnes */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 15px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Style de base d'une porte */
+.door {
+    position: relative;
+    height: 150px;
+    background-color: var(--green);
+    border: 5px solid var(--gold);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.door:hover:not(.unlocked):not(.open) {
+    transform: scale(1.05); /* Petit effet au survol */
+}
+
+/* Numéro de la porte (visible) */
+.door-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+    z-index: 2; /* Pour s'assurer qu'il est au-dessus du contenu */
+}
+
+/* État 'open' : la porte est ouverte (le numéro disparaît) */
+.door.open {
+    background-color: #ECF0F1; /* Fond clair quand c'est ouvert */
+    cursor: default;
+}
+
+.door.open .door-number {
+    opacity: 0;
+}
+
+/* Contenu de la porte (initialement caché) */
+.door-content {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #333;
+    background-color: #ECF0F1;
+    height: 100%;
+    border-radius: 5px;
+    opacity: 0; /* Cache le contenu par défaut */
+    transition: opacity 0.5s;
+    display: flex; /* Pour centrer le contenu */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    pointer-events: none; 
+}
+
+.door.open .door-content {
+    opacity: 1; /* Affiche le contenu quand la porte est ouverte */
+}
+
+/* État 'locked' : pour les portes futures */
+.door.locked {
+    opacity: 0.5; /* Rendre les portes futures un peu transparentes */
+    cursor: not-allowed;
+    background-image: repeating-linear-gradient(45deg, var(--green), var(--green) 10px, var(--red) 10px, var(--red) 20px);
+}
+
+
+/* Style pour la Modale (Popup) - Anti Triche */
+
+.modal {
+    display: none; /* Cachée par défaut */
+    position: fixed; /* Reste en place */
+    z-index: 10; /* Au-dessus de tout le reste */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7); /* Fond noir semi-transparent */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto; /* Centré verticalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#lock-message {
+    margin-top: 15px;
+    color: var(--red); /* Utilise la couleur de Noël définie */
+    font-weight: bold;
+}
