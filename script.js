@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Récupérer la date actuelle. Les mois vont de 0 (janvier) à 11 (décembre).
     const today = new Date();
-    const currentDay = today.getDate(); // Jour du mois (1-31)
-    const currentMonth = today.getMonth(); // Mois (11 = Décembre)
+    //const currentDay = today.getDate(); // Jour du mois (1-31)
+    //const currentMonth = today.getMonth(); // Mois (11 = Décembre)
+    const currentDay = 24; // Jour du mois (1-31)
+    const currentMonth = 11; // Mois (11 = Décembre)
     
     // NOUVELLES VARIABLES POUR LA MODALE (Ceci manquait)
     const modal = document.getElementById('modal-lock');
@@ -58,11 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // SI LA PORTE EST BLOQUÉE (MODIFICATION ICI : on affiche la modale)
             if (door.classList.contains('locked')) {
-                
-                // 1. Définir le message personnalisé (en utilisant votre jolie citation)
-                lockMessage.textContent = `Patience, my love! This surprise is for December ${day}! Remember: The two hardest tests on the spiritual road are the patience to wait for the right moment and the courage not to be disappointed with what we encounter. 💖`;
-                
-                // 2. Afficher la modale (au lieu de l'alerte)
+
+                // Afficher la modale (au lieu de l'alerte)
                 modal.style.display = 'block';
 
                 return; 
@@ -79,5 +78,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
-
