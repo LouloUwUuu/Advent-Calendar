@@ -108,6 +108,7 @@ header h1 {
 
 .door.open .door-content {
     opacity: 1; /* Affiche le contenu quand la porte est ouverte */
+    pointer-events: auto;
 }
 
 /* État 'locked' : pour les portes futures */
@@ -163,5 +164,6 @@ header h1 {
     color: var(--red); /* Utilise la couleur de Noël définie */
     font-weight: bold;
 }
+
 
 
