@@ -34,25 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
     doors.forEach(door => {
         const day = parseInt(door.getAttribute('data-day'));
         
-        // Si on n'est pas en décembre, tout est bloqué.
-        if (currentMonth !== 11) {
-            door.classList.add('locked');
-            // Mettre le mois à 12 pour que le message fonctionne, même si la date est fausse
-            door.dataset.day = day; 
-            return; 
-        }
-        
         // Si le jour de la porte est dans le futur, on la bloque.
-        if (day > currentDay) {
+        if (day > currentDay || currentMonth !== 11) {
             door.classList.add('locked');
         } else {
             // Sinon (jour actuel ou passé), on la déverrouille (unlocked)
             door.classList.add('unlocked');
-            
-            // Vérifie si la porte a déjà été ouverte via LocalStorage
-            if (localStorage.getItem('door_' + day) === 'open') {
-                door.classList.add('open');
-            }
         }
 
         // --- 2. Gérer le Clic sur la Porte ---
@@ -72,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Ouvre la porte
                 door.classList.add('open');
                 // Enregistre l'état de la porte
-                localStorage.setItem('door_' + day, 'open');
             }
         });
     });
