@@ -101,6 +101,11 @@ header h1 {
     box-sizing: border-box; /* Inclut le padding dans la largeur/hauteur */
 }
 
+.door-content img {
+    max-height: 150px; /* Limiter la hauteur maximale des images */
+    width: auto;       /* Conserver les proportions */
+}
+
 .door.open .door-content {
     opacity: 1; /* Affiche le contenu quand la porte est ouverte */
 }
@@ -158,4 +163,5 @@ header h1 {
     color: var(--red); /* Utilise la couleur de Noël définie */
     font-weight: bold;
 }
+
 
