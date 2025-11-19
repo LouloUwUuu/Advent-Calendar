@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const day = parseInt(door.getAttribute('data-day'));
         
         // Si on n'est pas en décembre, tout est bloqué.
-        if (currentMonth !== 11) {
+        if (currentMonth !== 12) {
             door.classList.add('locked');
             // Mettre le mois à 12 pour que le message fonctionne, même si la date est fausse
             door.dataset.day = day; 
@@ -79,3 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
