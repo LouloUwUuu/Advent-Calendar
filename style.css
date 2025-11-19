@@ -101,6 +101,11 @@ header h1 {
     box-sizing: border-box; /* Inclut le padding dans la largeur/hauteur */
 }
 
+.door-content iframe {
+    max-width: 100%; /* S'assure que les iframes ne débordent pas */
+    height: auto;    /* Conserve les proportions */
+}
+
 .door-content img {
     max-height: 150px; /* Limiter la hauteur maximale des images */
     width: auto;       /* Conserver les proportions */
