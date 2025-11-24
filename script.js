@@ -3,10 +3,10 @@
        
     // Récupérer la date actuelle. Les mois vont de 0 (janvier) à 11 (décembre).
     const today = new Date();
-    //const currentDay = today.getDate(); // Jour du mois (1-31)
-    //const currentMonth = today.getMonth(); // Mois (11 = Décembre)
-    const currentDay = 16; // Jour du mois (1-31)
-    const currentMonth = 11; // Mois (11 = Décembre)
+    const currentDay = today.getDate(); // Jour du mois (1-31)
+    const currentMonth = today.getMonth(); // Mois (11 = Décembre)
+    //const currentDay = 2; // Jour du mois (1-31)
+    //const currentMonth = 11; // Mois (11 = Décembre)
     
     // NOUVELLES VARIABLES POUR LA MODALE 
     const modal = document.getElementById('modal-lock');
@@ -39,7 +39,7 @@
             door.classList.add('locked');
         }
         // Sinon (jour passé), on l'ouvre
-        if (day < currentDay) {
+        if (day < currentDay && currentMonth == 11) {
             door.classList.add('open');
         }
 
