@@ -5,7 +5,7 @@
     const today = new Date();
     const currentDay = today.getDate(); // Jour du mois (1-31)
     const currentMonth = today.getMonth(); // Mois (11 = Décembre)
-    //const currentDay = 2; // Jour du mois (1-31)
+    //const currentDay = 24; // Jour du mois (1-31)
     //const currentMonth = 11; // Mois (11 = Décembre)
     
     // NOUVELLES VARIABLES POUR LA MODALE 
